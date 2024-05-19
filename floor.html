@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floor Tips Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Floor Tips Calculator</h1>
+
+    <label for="netSales">Net Sales:</label>
+    <input type="number" id="netSales" placeholder="Enter net sales" required>
+
+    <label for="liquorSales">Liquor Sales:</label>
+    <input type="number" id="liquorSales" placeholder="Enter liquor sales" required>
+
+    <label for="numBussers">Number of Bussers:</label>
+    <input type="number" id="numBussers" placeholder="Enter number of bussers" required>
+
+    <label for="numRunners">Number of Runners:</label>
+    <input type="number" id="numRunners" placeholder="Enter number of runners" required>
+
+    <label for="numServers">Number of Servers:</label>
+    <input type="number" id="numServers" placeholder="Enter number of servers" required>
+
+    <label for="numBartenders">Number of Bartenders:</label>
+    <input type="number" id="numBartenders" placeholder="Enter number of bartenders" required>
+
+    <button onclick="calculateFloorTips()">Calculate Tips</button>
+
+    <div class="output" id="output"></div>
+
+    <div class="qr-container">
+        <img src="path/to/your/qr-code.png" alt="QR Code">
+        <div class="qr-label">Tip the maker</div>
+    </div>
+
+    <script src="floor.js"></script>
+</body>
+</html>
+
