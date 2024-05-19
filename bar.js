@@ -5,7 +5,7 @@ function calculateBarTips() {
     const numRunners = parseInt(document.getElementById('numRunners').value, 10);
     const numBartenders = parseInt(document.getElementById('numBartenders').value, 10);
     const numBarbacks = parseInt(document.getElementById('numBarbacks').value, 10);
-
+    
     if (isNaN(netSales) || isNaN(foodSales) || isNaN(numBussers) || isNaN(numRunners) || isNaN(numBartenders) || isNaN(numBarbacks)) {
         alert('Please enter valid numbers in all fields.');
         return;
