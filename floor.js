@@ -1,6 +1,4 @@
 function calculateFloorTips() {
-    console.log('calculateFloorTips called');
-
     const netSales = parseFloat(document.getElementById('netSales').value);
     const liquorSales = parseFloat(document.getElementById('liquorSales').value);
     const numBussers = parseInt(document.getElementById('numBussers').value, 10);
@@ -25,6 +23,10 @@ function calculateFloorTips() {
 
     const bartenderTip = (liquorSales * 5) / 100;
     const eachBartenderGets = numBartenders ? bartenderTip / numBartenders : 0;
+
+    // Display tip out amounts
+    document.getElementById('floorTipOutDisplay').innerHTML = `Total Tip Out (18% of Net Sales): $${tipOut.toFixed(2)}`;
+    document.getElementById('liquorTipOutDisplay').innerHTML = `Total Tip Out (5% of Liquor Sales): $${bartenderTip.toFixed(2)}`;
 
     const output = `
         <p>Each Busser Gets: $${eachBusserGets.toFixed(2)}</p>
