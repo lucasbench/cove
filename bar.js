@@ -5,7 +5,7 @@ function calculateBarTips() {
     const numRunners = parseInt(document.getElementById('numRunners').value, 10);
     const numBartenders = parseInt(document.getElementById('numBartenders').value, 10);
     const numBarbacks = parseInt(document.getElementById('numBarbacks').value, 10);
-    
+
     if (isNaN(netSales) || isNaN(foodSales) || isNaN(numBussers) || isNaN(numRunners) || isNaN(numBartenders) || isNaN(numBarbacks)) {
         alert('Please enter valid numbers in all fields.');
         return;
@@ -39,6 +39,10 @@ function calculateBarTips() {
     // Calculate each bartender's and barback's share
     const eachBartenderGets = pointValue;
     const eachBarbackGets = pointValue * 0.5;
+
+    // Display the tip out amounts
+    document.getElementById('barTipOutDisplay').innerHTML = `Total Tip Out (18% of Net Sales): $${tipOut.toFixed(2)}`;
+    document.getElementById('foodTipOutDisplay').innerHTML = `Total Tip Out (5% of Food Sales): $${foodRunnerTip.toFixed(2)}`;
 
     // Display results
     const output = `
