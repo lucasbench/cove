@@ -22,22 +22,25 @@ function calculateBarTips() {
 
     const eachBusserGets = numBussers ? busserShare / numBussers : 0;
 
-    const remainingForBartenders = tipOut - busserShare;
+    const foodRunnerTip = (foodSales * 5) / 100;
+    const eachRunnerGets = numRunners ? foodRunnerTip / numRunners : 0;
+
+    const totalRunnerTip = foodRunnerTip * numRunners;
+
+    const remainingForBartenders = tipOut - busserShare - totalRunnerTip;
     const eachBartenderGets = numBartenders ? remainingForBartenders / numBartenders : 0;
 
     const eachBarbackGets = numBarbacks ? (eachBartenderGets / 2) : 0;
 
-    const foodRunnerTip = (foodSales * 5) / 100;
-    const eachRunnerGets = numRunners ? foodRunnerTip / numRunners : 0;
-
     const output = `
         <p>Each Busser Gets: $${eachBusserGets.toFixed(2)}</p>
+        <p>Each Runner Gets: $${eachRunnerGets.toFixed(2)}</p>
         <p>Each Bartender Gets: $${eachBartenderGets.toFixed(2)}</p>
         <p>Each Barback Gets: $${eachBarbackGets.toFixed(2)}</p>
-        <p>Each Runner Gets: $${eachRunnerGets.toFixed(2)}</p>
     `;
 
     document.getElementById('output').innerHTML = output;
 }
+
 
 
