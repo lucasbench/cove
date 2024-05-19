@@ -27,14 +27,18 @@ function calculateBarTips() {
     }
     const eachBusserGets = numBussers ? busserShare / numBussers : 0;
 
-    // Deduct busser share and foodRunnerTip from tipOut
-    const remainingForBartenders = tipOut - busserShare - foodRunnerTip;
+    // Calculate the remaining tips after deducting busser share and foodRunnerTip from tipOut
+    const remainingTips = tipOut - busserShare - foodRunnerTip;
 
-    // Calculate remaining tips for bartenders
-    const eachBartenderGets = numBartenders ? remainingForBartenders / numBartenders : 0;
+    // Calculate total points for bartenders and barbacks
+    const totalPoints = numBartenders + (numBarbacks * 0.5);
 
-    // Calculate barback's share as half of bartender's share
-    const eachBarbackGets = numBarbacks ? (eachBartenderGets / 2) : 0;
+    // Calculate the value of one point
+    const pointValue = totalPoints ? remainingTips / totalPoints : 0;
+
+    // Calculate each bartender's and barback's share
+    const eachBartenderGets = pointValue;
+    const eachBarbackGets = pointValue * 0.5;
 
     // Display results
     const output = `
@@ -46,5 +50,3 @@ function calculateBarTips() {
 
     document.getElementById('output').innerHTML = output;
 }
-
-
