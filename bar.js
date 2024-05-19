@@ -14,6 +14,10 @@ function calculateBarTips() {
     // Calculate total tips from net sales
     const tipOut = (netSales * 18) / 100;
 
+    // Calculate runner's tip from food sales
+    const foodRunnerTip = (foodSales * 5) / 100;
+    const eachRunnerGets = numRunners ? foodRunnerTip / numRunners : 0;
+
     // Calculate busser's share
     let busserShare = 0;
     if (numBussers === 1) {
@@ -23,13 +27,9 @@ function calculateBarTips() {
     }
     const eachBusserGets = numBussers ? busserShare / numBussers : 0;
 
-    // Calculate runner's tip from food sales
-    const foodRunnerTip = (foodSales * 5) / 100;
-    const eachRunnerGets = numRunners ? foodRunnerTip / numRunners : 0;
-    
     // Deduct busser share and foodRunnerTip from tipOut
     const remainingForBartenders = tipOut - busserShare - foodRunnerTip;
-    
+
     // Calculate remaining tips for bartenders
     const eachBartenderGets = numBartenders ? remainingForBartenders / numBartenders : 0;
 
