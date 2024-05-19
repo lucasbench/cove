@@ -33,6 +33,17 @@ button:hover {
     background-color: #0056b3;
 }
 
+.cove-logo-container {
+    text-align: center;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.cove-logo-container img {
+    width: 200px; /* Adjust size as needed */
+    height: 200px; /* Adjust size as needed */
+}
+
 .qr-container {
     text-align: center;
     margin-top: auto;
