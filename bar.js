@@ -11,27 +11,32 @@ function calculateBarTips() {
         return;
     }
 
+    // Calculate total tips from net sales
     const tipOut = (netSales * 18) / 100;
-    let busserShare = 0;
 
+    // Calculate busser's share
+    let busserShare = 0;
     if (numBussers === 1) {
         busserShare = (tipOut * 8) / 100;
     } else if (numBussers === 2) {
         busserShare = (tipOut * 15) / 100;
     }
-
     const eachBusserGets = numBussers ? busserShare / numBussers : 0;
 
+    // Calculate runner's tip from food sales
     const foodRunnerTip = (foodSales * 5) / 100;
     const eachRunnerGets = numRunners ? foodRunnerTip / numRunners : 0;
-
-    const totalRunnerTip = foodRunnerTip * numRunners;
-
-    const remainingForBartenders = tipOut - busserShare - totalRunnerTip;
+    
+    // Deduct busser share and foodRunnerTip from tipOut
+    const remainingForBartenders = tipOut - busserShare - foodRunnerTip;
+    
+    // Calculate remaining tips for bartenders
     const eachBartenderGets = numBartenders ? remainingForBartenders / numBartenders : 0;
 
+    // Calculate barback's share as half of bartender's share
     const eachBarbackGets = numBarbacks ? (eachBartenderGets / 2) : 0;
 
+    // Display results
     const output = `
         <p>Each Busser Gets: $${eachBusserGets.toFixed(2)}</p>
         <p>Each Runner Gets: $${eachRunnerGets.toFixed(2)}</p>
@@ -41,6 +46,5 @@ function calculateBarTips() {
 
     document.getElementById('output').innerHTML = output;
 }
-
 
 
