@@ -16,7 +16,7 @@ function calculateBarTips() {
 
     // Calculate runner's tip from food sales
     const foodRunnerTip = (foodSales * 5) / 100;
-    const eachRunnerGets = numRunners ? foodRunnerTip / numRunners : 0;
+    const eachRunnerGets = numRunners > 0 ? foodRunnerTip / numRunners : 0;
 
     // Calculate busser's share
     let busserShare = 0;
@@ -25,20 +25,20 @@ function calculateBarTips() {
     } else if (numBussers === 2) {
         busserShare = (tipOut * 15) / 100;
     }
-    const eachBusserGets = numBussers ? busserShare / numBussers : 0;
+    const eachBusserGets = numBussers > 0 ? busserShare / numBussers : 0;
 
     // Calculate the remaining tips after deducting busser share and foodRunnerTip from tipOut
     const remainingTips = tipOut - busserShare - foodRunnerTip;
 
     // Calculate total points for bartenders and barbacks
-    const totalPoints = numBartenders + (numBarbacks * 0.5);
+    const totalPoints = (numBartenders > 0 ? numBartenders : 0) + (numBarbacks > 0 ? (numBarbacks * 0.5) : 0);
 
     // Calculate the value of one point
-    const pointValue = totalPoints ? remainingTips / totalPoints : 0;
+    const pointValue = totalPoints > 0 ? remainingTips / totalPoints : 0;
 
     // Calculate each bartender's and barback's share
-    const eachBartenderGets = pointValue;
-    const eachBarbackGets = pointValue * 0.5;
+    const eachBartenderGets = numBartenders > 0 ? pointValue : 0;
+    const eachBarbackGets = numBarbacks > 0 ? pointValue * 0.5 : 0;
 
     // Display the tip out amounts
     document.getElementById('barTipOutDisplay').innerHTML = `Total Tip Out (18% of Net Sales): $${tipOut.toFixed(2)}`;
