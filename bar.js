@@ -21,9 +21,9 @@ function calculateBarTips() {
     // Calculate busser's share
     let busserShare = 0;
     if (numBussers === 1) {
-        busserShare = (tipOut * 8) / 100;
+        busserShare = (tipOut * 6) / 100;
     } else if (numBussers === 2) {
-        busserShare = (tipOut * 15) / 100;
+        busserShare = (tipOut * 13) / 100;
     }
     const eachBusserGets = numBussers > 0 ? busserShare / numBussers : 0;
 
